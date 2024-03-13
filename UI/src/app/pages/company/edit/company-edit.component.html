@@ -1,0 +1,68 @@
+<div class="company-edit-container">
+  <h2 class="company-edit-title">Edit Company</h2>
+  <form (submit)="updateCompany(companyForm.value)" class="company-edit-form">
+    <dx-form #dxForm [formData]="companyForm.value">
+
+      <dxi-item dataField="imageFile">
+        <dxo-label text="Image"></dxo-label>
+        <div>
+          <img [src]="serverURL + companyForm.get('imagePath')?.value" 
+               alt="Catalog Image" height="200" width="200">
+        </div>
+        <input type="file" (change)="onFileChange($event)" />
+      </dxi-item>
+
+    <dxi-item dataField="companyName" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Enter Company Name' }">
+      <dxo-label text="Company Name"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="companyTypeId" editorType="dxSelectBox" [editorOptions]="{ 
+        dataSource: companyType, 
+        displayExpr: 'name', 
+        valueExpr: 'id', 
+        searchEnabled: true,
+        searchExpr: 'name'
+      }">
+      <dxo-label text="Type"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="companyAcronym" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Enter Company Acronym' }">
+      <dxo-label text="Company Acronym"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="email" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Enter Email', mode: 'email' }">
+      <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>
+      <dxo-label text="Email"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="phone" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Enter Phone' }">
+      <dxo-label text="Phone"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="webSite" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Enter Web Site' }">
+      <dxo-label text="Web Site"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="shipingAddress" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Enter Address' }">
+      <dxo-label text="Address"></dxo-label>
+    </dxi-item>
+
+    <dxi-item itemType="button" alignment="after">
+      <dxo-button-options text="Submit" width="100%" type="default" [useSubmitBehavior]="true">
+      </dxo-button-options>
+    </dxi-item>
+
+    <dxi-item itemType="button">
+      <dxo-button-options text="Delete" width="100%" type="danger" [onClick]="deleteCompany">
+      </dxo-button-options>
+    </dxi-item>
+
+  </dx-form>
+</form>
+</div>

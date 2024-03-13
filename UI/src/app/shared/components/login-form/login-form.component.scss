@@ -1,0 +1,33 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+  
+    .link {
+      margin-top: 10px;
+      text-align: center;
+  
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+    }
+  
+    .dx-button {
+      margin-top: 15px;
+    }
+  
+    .dx-textbox {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .dx-button-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  

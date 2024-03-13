@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Welcome to the App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="welcome-message">
+    <h1>Hello, User!</h1>
+    <p>Welcome to our app. Please login or register to continue.</p>
+  </div>
+
+  <div class="buttons-container">
+    <ion-button expand="full" (click)="goToLogin()">Login</ion-button>
+    <ion-button expand="full" (click)="goToRegister()">Register</ion-button>
+  </div>
+</ion-content>

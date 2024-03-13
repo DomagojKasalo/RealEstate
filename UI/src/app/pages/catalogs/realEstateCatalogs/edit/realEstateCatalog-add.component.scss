@@ -1,0 +1,39 @@
+.container {
+  padding: 2em;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background-color: white;
+
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  .catalogForm {
+    padding: 2em;
+
+    .dx-texteditor-input, .dx-selectbox {
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      padding: .5em;
+    }
+
+    .dx-button {
+      width: 100%;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+      padding: .5em 0;
+      text-transform: uppercase;
+      transition: background-color .3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}

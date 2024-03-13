@@ -1,0 +1,71 @@
+<div class="container">
+  <h1>Edit Catalog Item</h1>
+
+  <form class="catalogItemForm" (submit)="updateCatalogItem(catalogItemForm.value)">
+    <dx-form [formData]="catalogItemForm.value">
+
+      <!-- <dxi-item dataField="imageFiles">
+        <dxo-label text="Images"></dxo-label>
+        <input type="file" (change)="onMultipleFileChange($event)" multiple />
+      </dxi-item> -->
+
+      <dxi-item dataField="name" editorType="dxTextBox" [editorOptions]="{placeholder: 'Enter Name'}">
+        <dxo-label text="Name"></dxo-label>
+      </dxi-item>
+
+      <dxi-item dataField="catalogId" editorType="dxSelectBox"
+        [editorOptions]="{items: catalog, displayExpr: 'name', valueExpr: 'id'}">
+        <dxo-label text="Catalog"></dxo-label>
+      </dxi-item>
+
+      <dxi-item dataField="catalogItemTypeId" editorType="dxSelectBox"
+        [editorOptions]="{items: catalogItemType, displayExpr: 'name', valueExpr: 'id'}">
+        <dxo-label text="Catalog Item Type"></dxo-label>
+      </dxi-item>
+
+      <dxi-item dataField="catalogItemStatusId" editorType="dxSelectBox"
+        [editorOptions]="{items: catalogItemStatus, displayExpr: 'name', valueExpr: 'id'}">
+        <dxo-label text="Catalog Item Status"></dxo-label>
+      </dxi-item>
+
+      <dxi-item dataField="description" editorType="dxTextBox">
+        <dxo-label text="Description"></dxo-label>
+      </dxi-item>
+
+      <dxi-item dataField="floors" editorType="dxTextBox">
+        <dxo-label text="Floors"></dxo-label>
+      </dxi-item>
+
+      <dxi-item dataField="rooms" editorType="dxTextBox">
+        <dxo-label text="Rooms"></dxo-label>
+      </dxi-item>
+
+      <dxi-item dataField="bathrooms" editorType="dxTextBox">
+        <dxo-label text="Bathrooms"></dxo-label>
+      </dxi-item>
+
+      <dxi-item dataField="garagePlaces" editorType="dxTextBox">
+        <dxo-label text="Garage Places"></dxo-label>
+      </dxi-item>
+
+      <dxi-item dataField="netArea" editorType="dxTextBox">
+        <dxo-label text="Net Area"></dxo-label>
+      </dxi-item>
+
+      <dxi-item itemType="button">
+        <dxo-button-options text="Submit" width="100%" type="default" [useSubmitBehavior]="true"></dxo-button-options>
+      </dxi-item>
+
+      <dxi-item itemType="button">
+        <dxo-button-options text="Upload Images" width="100%" type="success" [onClick]="uploadMultipleImages.bind(this)">
+        </dxo-button-options>
+      </dxi-item>      
+
+      <dxi-item itemType="button">
+        <dxo-button-options text="Delete" width="100%" type="danger" [onClick]="deleteCatalogItem">
+        </dxo-button-options>
+      </dxi-item>
+
+    </dx-form>
+  </form>
+</div>

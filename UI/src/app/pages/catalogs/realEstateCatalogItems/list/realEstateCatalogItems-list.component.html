@@ -1,0 +1,38 @@
+<dx-load-panel></dx-load-panel>
+<div class="container">
+  <div class="search-bar">
+    <div class="button-group">
+      <button dxButton [textContent]="'Add'" (click)="onAddClick()" class="add-button"></button>
+      <button dxButton [textContent]="'Clear Filters'" (click)="clearFilters()"></button>
+    </div>
+
+    <dx-data-grid 
+      *ngIf="dataSource" 
+      [dataSource]="dataSource" 
+      [showBorders]="true" 
+      [columnAutoWidth]="true"
+      [focusedRowEnabled]="false" 
+      [keyExpr]="'id'" 
+      (onRowClick)="onRowClick($event.data)"
+      (onOptionChanged)="handleOptionChanged($event)"
+      [remoteOperations]="{ filtering: true, sorting: true, paging: true }">
+      <dxo-pager [allowedPageSizes]="[5, 10, 20]" [showPageSizeSelector]="true" [showNavigationButtons]="true">
+      </dxo-pager>
+
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <dxo-paging [pageSize]="10"></dxo-paging>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <dxo-search-panel [visible]="true"></dxo-search-panel>
+
+      <dxi-column dataField="name" caption="Name" [allowHeaderFiltering]="false"></dxi-column>
+      <dxi-column dataField="catalogName" caption="Catalog Name">
+        <dxo-header-filter></dxo-header-filter>
+      </dxi-column>
+      <dxi-column dataField="catalogItemTypeName" caption="Catalog Item Type">
+        <dxo-header-filter></dxo-header-filter>
+      </dxi-column>
+      <dxi-column dataField="description" caption="Description" [allowHeaderFiltering]="false"></dxi-column>
+    </dx-data-grid>
+  </div>
+</div>
+<dx-load-panel></dx-load-panel>

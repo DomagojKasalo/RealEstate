@@ -1,0 +1,28 @@
+<div id="wrapper" [class]="wrapperClassName">
+  <dx-load-panel [position]="{ of: '#file-manager' }" [(visible)]="loadPanelVisible">
+  </dx-load-panel>
+  <dx-file-manager id="file-manager" [fileSystemProvider]="fileSystemProvider"
+    [allowedFileExtensions]="allowedFileExtensions">
+    <!-- uncomment the code below to enable file/directory management -->
+    <dxo-permissions 
+        [create]="true"
+        [copy]="true"
+        [move]="true"
+        [delete]="true"
+        [rename]="true"
+        [upload]="true"
+        [download]="true">
+    </dxo-permissions>
+  </dx-file-manager>
+</div>
+
+
+
+<!-- <div>
+    <h2>File Upload</h2>
+    <input type="file" (change)="onFileSelected($event)" />
+    <button (click)="uploadFile()">Upload File</button>
+    <div *ngIf="uploadedUrl">
+      <p>Uploaded File URL: {{ uploadedUrl }}</p>
+    </div>
+</div> -->

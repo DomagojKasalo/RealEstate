@@ -1,0 +1,12 @@
+<div class="container">
+  <form [formGroup]="imageUploadForm" (ngSubmit)="uploadImages()">
+    <div class="form-group">
+      <input type="file" (change)="onFileSelect($event)" multiple>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+  <div *ngFor="let image of catalogItemImages">
+    <img [src]="'http://localhost:3000' + image.imagePath" alt="image" class="uploaded-image">
+    <button class="btn btn-delete" (click)="deleteImage(image.id)">Delete</button>
+  </div>
+</div>

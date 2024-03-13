@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Catalogs</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar slot="start" [(ngModel)]="searchTerm" (ionChange)="filterCatalogItems()" placeholder="Search catalogs"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleSelect()">
+        <ion-icon slot="icon-only" name="filter"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="showSelect">
+    <ion-select placeholder="Select Catalog Type" [(ngModel)]="selectedCatalogType" (ionChange)="filterCatalogItems()">
+      <ion-select-option [value]="null">Select Catalog Type</ion-select-option>
+      <ion-select-option *ngFor="let type of catalogTypes" [value]="type.id">{{ type.name }}</ion-select-option>
+    </ion-select>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of filteredCatalogs" (click)="openCatalogItem(item.id.toString())">
+    <ion-card-header>
+      <ion-card-title>{{ item.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Company: {{ item.companyName }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

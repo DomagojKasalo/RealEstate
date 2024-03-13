@@ -1,0 +1,27 @@
+<dx-load-panel [visible]="loading"></dx-load-panel>
+
+<div class="row mb-3">
+  <div class="animated fadeIn col-md-12">
+    <div class="search-bar">
+      <button dxButton [textContent]="'Add'" (click)="onAddClick()" class="add-button"></button>
+    </div>
+    <dx-data-grid
+      [dataSource]="companies"
+      [showBorders]="true"
+      [columnAutoWidth]="true"
+      [remoteOperations]="true"
+      [focusedRowEnabled]="true"
+      [keyExpr]="'id'" 
+      (onRowClick)="onRowClick($event.data)"
+    >
+      <dxo-paging [pageSize]="10"></dxo-paging>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <dxo-search-panel [visible]="true"></dxo-search-panel>
+
+      <dxi-column dataField="companyName" caption="company Name"></dxi-column>
+      <dxi-column dataField="email" caption="Email"></dxi-column>
+      <dxi-column dataField="shipingAddress" caption="Address"></dxi-column>
+      <dxi-column dataField="webSite" caption="website"></dxi-column>
+    </dx-data-grid>
+  </div>
+</div>

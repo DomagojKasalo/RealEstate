@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Edit Catalog</h1>
+
+  <form class="catalogForm" (submit)="updateCatalog(catalogForm.value, catalogId)">
+    <dx-form [formData]="catalogForm.value">
+    <dxi-item dataField="name" editorType="dxTextBox" [editorOptions]="{placeholder: 'Enter Name'}">
+      <dxo-label text="Name"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="companyId" editorType="dxSelectBox" [editorOptions]="{items: company, displayExpr: 'companyName', valueExpr: 'id'}">
+      <dxo-label text="Company"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="catalogTypeId" editorType="dxSelectBox" [editorOptions]="{items: catalogType, displayExpr: 'name', valueExpr: 'id'}">
+      <dxo-label text="Catalog Type"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="description" editorType="dxTextBox">
+      <dxo-label text="Description"></dxo-label>
+    </dxi-item>
+
+    <dxi-item itemType="button">
+      <dxo-button-options text="Submit" width="100%" type="default" [useSubmitBehavior]="true"></dxo-button-options>
+    </dxi-item>
+
+    <dxi-item itemType="button">
+      <dxo-button-options text="Delete" width="100%" type="danger" [onClick]="deleteCatalog">
+      </dxo-button-options>
+    </dxi-item>
+  </dx-form>
+  </form>
+</div>
